@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import axios from 'axios';
@@ -40,7 +40,7 @@ const Home = () => {
 
   useEffect(() => {
     socket.emit("join", { userType: "user", userId: user._id });
-  }, [user]);
+  }, [user, socket]);
 
   socket.on('ride-confirmed', ride => {
     setVehicleFound(false);
@@ -63,7 +63,9 @@ const Home = () => {
         }
       });
       setPickupSuggestions(response.data);
-    } catch { }
+    } catch (error) {
+      console.error('Error fetching pickup suggestions:', error);
+    }
   };
 
   const handleDestinationChange = async (e) => {
@@ -76,7 +78,9 @@ const Home = () => {
         }
       });
       setDestinationSuggestions(response.data);
-    } catch { }
+    } catch (error) {
+      console.error('Error fetching destination suggestions:', error);
+    }
   };
 
   const submitHandler = (e) => {
@@ -201,7 +205,7 @@ const Home = () => {
       </div>
 
       {/* Other Panels */}
-      <div ref={vehiclePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-10 pt-12'>
+      <div ref={vehiclePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-10 pt-12 max-h-[80vh] overflow-y-auto'>
         <VehiclePanel
           selectVehicle={setVehicleType}
           fare={fare}
@@ -210,7 +214,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={confirmRidePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12'>
+      <div ref={confirmRidePanelRef} className='fixed w-full z-20 bottom-0 translate-y-full bg-white px-3 py-6 pt-12 max-h-[80vh] overflow-y-auto'>
         <ConfirmRide
           createRide={createRide}
           pickup={pickup}
@@ -222,7 +226,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={vehicleFoundRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12'>
+      <div ref={vehicleFoundRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12 max-h-[80vh] overflow-y-auto'>
         <LookingForDriver
           createRide={createRide}
           pickup={pickup}
@@ -233,7 +237,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={waitingForDriverRef} className='fixed w-full z-10 bottom-0 bg-white px-3 py-6 pt-12'>
+      <div ref={waitingForDriverRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12 max-h-[80vh] overflow-y-auto'>
         <WaitingForDriver
           ride={ride}
           setVehicleFound={setVehicleFound}

@@ -63,7 +63,7 @@ const CaptainDetails = ({ refreshTrigger = 0 }) => {
         <div className='pb-4'>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center justify-start gap-3'>
-                    <img className='h-10 w-10 rounded-full object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdlMd7stpWUCmjpfRjUsQ72xSWikidbgaI1w&s" alt="" />
+                    <img className='h-10 w-10 rounded-full object-cover' src="https://st2.depositphotos.com/5934840/11417/v/450/depositphotos_114179902-stock-illustration-simple-person-pictogram.jpg" alt="" />
                     <div>
                         <h4 className='text-lg font-medium capitalize'>{captain.fullname.firstname + " " + captain.fullname.lastname}</h4>
                         <div className='flex items-center gap-1'>
