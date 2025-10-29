@@ -1,27 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Prevent mobile browser UI overlap */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: fixed;
-  touch-action: pan-y;
-}
-
-#root {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Hide browser address bar behavior */
-@supports (-webkit-appearance: none) {
-  html {
-    height: -webkit-fill-available;
-  }
-}
