@@ -196,6 +196,7 @@ module.exports.getCaptainsInTheRadius = async (ltd, lng, radius) => {
 
 
     const captains = await captainModel.find({
+        status: { $ne: "inactive" }, // exclude inactive captains
         location: {
             $geoWithin: {
                 $centerSphere: [ [ ltd, lng ], radius / 6371 ]
