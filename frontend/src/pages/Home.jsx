@@ -99,25 +99,25 @@ const Home = () => {
 
   useGSAP(() => {
     gsap.to(vehiclePanelRef.current, {
-      transform: vehiclePanel ? 'translateY(0)' : 'translateY(100%)',
+      transform: vehiclePanel ? 'translateY(0)' : 'translateY(105%)',
     });
   }, [vehiclePanel]);
 
   useGSAP(() => {
     gsap.to(confirmRidePanelRef.current, {
-      transform: confirmRidePanel ? 'translateY(0)' : 'translateY(100%)',
+      transform: confirmRidePanel ? 'translateY(0)' : 'translateY(105%)',
     });
   }, [confirmRidePanel]);
 
   useGSAP(() => {
     gsap.to(vehicleFoundRef.current, {
-      transform: vehicleFound ? 'translateY(0)' : 'translateY(100%)',
+      transform: vehicleFound ? 'translateY(0)' : 'translateY(105%)',
     });
   }, [vehicleFound]);
 
   useGSAP(() => {
     gsap.to(waitingForDriverRef.current, {
-      transform: waitingForDriver ? 'translateY(0)' : 'translateY(100%)',
+      transform: waitingForDriver ? 'translateY(0)' : 'translateY(105%)',
     });
   }, [waitingForDriver]);
 
@@ -205,7 +205,7 @@ const Home = () => {
       </div>
 
       {/* Other Panels - Higher z-index to be above initial search panel */}
-      <div ref={vehiclePanelRef} className='fixed w-full z-40 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-10 pt-12 max-h-[85vh] overflow-y-auto'>
+      <div ref={vehiclePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-4 sm:py-6 pt-8 sm:pt-12 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto'>
         <VehiclePanel
           selectVehicle={setVehicleType}
           fare={fare}
@@ -214,7 +214,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={confirmRidePanelRef} className='fixed w-full z-40 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-6 pt-12 max-h-[85vh] overflow-y-auto'>
+      <div ref={confirmRidePanelRef} className='fixed w-full z-20 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-4 sm:py-6 pt-8 sm:pt-12 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto'>
         <ConfirmRide
           createRide={createRide}
           pickup={pickup}
@@ -226,7 +226,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={vehicleFoundRef} className='fixed w-full z-40 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-6 pt-12 max-h-[85vh] overflow-y-auto'>
+      <div ref={vehicleFoundRef} className='fixed w-full z-30 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-4 sm:py-6 pt-8 sm:pt-12 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto'>
         <LookingForDriver
           createRide={createRide}
           pickup={pickup}
@@ -237,7 +237,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={waitingForDriverRef} className='fixed w-full z-40 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-6 pt-12 max-h-[85vh] overflow-y-auto'>
+      <div ref={waitingForDriverRef} className='fixed w-full z-40 bottom-0 translate-y-full bg-white rounded-t-3xl shadow-2xl px-3 py-4 sm:py-6 pt-8 sm:pt-12 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto'>
         <WaitingForDriver
           ride={ride}
           setVehicleFound={setVehicleFound}
